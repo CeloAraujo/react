@@ -27,9 +27,33 @@ const cars = [
   { id: 2, brand: "Porsche", color: "Preta", km: 20 },
   { id: 3, brand: "Chevrolet", color: "Amarela", km: 47543 },
 ];
+// 12- fragments
+import Fragments from "./assets/components/Fragments";
+
+// 13- children
+import Container from "./assets/components/Container";
+// 14- Função em prop
+import ExecutarFunction from "./assets/components/ExecutarFunction";
+// 15- state lift
+import Message from "./assets/components/Message";
+import ChangeMessage from "./assets/components/ChangeMessage";
+
 
 function App() {
   const [count, setCount] = useState(0);
+
+  // 14- funcao em prop
+  function showMessage() {
+    console.log("Evento do componente pai");
+  }
+
+  // 15- state lift
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  };
 
   return (
     <>
@@ -64,6 +88,21 @@ function App() {
             color={car.color}
           />
         ))}
+        {/* 12- Fragments */}
+        <Fragments />
+        {/* 13- children */}
+        <Container>
+          <p>Imprimindo</p>
+        </Container>
+        <Container>
+          <p>Imprimindo no componente pai 2</p>
+          <p>Mandando componente jsx ^^</p>
+        </Container>
+        {/* 14- função em prop */}
+        <ExecutarFunction MinhaFuncao={showMessage} />
+        {/* 15 - state lift */}
+        <Message msg={message}/>
+        <ChangeMessage handleMessage={handleMessage}/>
       </div>
     </>
   );
