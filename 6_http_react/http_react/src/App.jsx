@@ -9,7 +9,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   // 4- custom hook
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // useEffect(() => {
   //   async function getData() {
@@ -38,7 +38,6 @@ function App() {
     };
     httpConfig(product, "POST");
 
-   
     // console.log(product);
     // const res = await fetch(url, {
     //   method: "POST",
@@ -58,6 +57,10 @@ function App() {
     <>
       <div>
         <h1>Http em react</h1>
+        {/* 6-loading */}
+        {loading && <p>Carregando...</p>}
+        {/* 7-tratando erros */}
+          {error && <p>{error}</p>}
         {/* 1 - resgatando dados */}
         <ul>
           {items &&
@@ -86,7 +89,14 @@ function App() {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </label>
-            <input type="submit" value="enviar" />
+            {/* <input type="submit" value="enviar" /> */}
+            {/* 7- loading POST */}
+            {loading && <input type="submit" disabled value="Aguarde" />}
+            {!loading && <input type="submit" value="Criar" />}
+            <p>
+              OBS: use slow 3g para ter uma noção ( já que esse treino é com
+              local host)
+            </p>
           </form>
         </div>
       </div>
