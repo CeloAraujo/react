@@ -6,7 +6,7 @@ import "./index.css";
 // pagina de erro
 import ErrorPage from "./routes/ErrorPage.jsx";
 // routers
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import Contact from "./routes/Contact.jsx";
 
 // 3-componente base
@@ -48,6 +48,11 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <Search />,
+      },
+      // 10- redirect
+      {
+        path: "teste",
+        element: <Navigate to="/"/>
       },
     ],
   },
