@@ -3,13 +3,15 @@ import "./App.css";
 
 import { Outlet } from "react-router-dom";
 
+// 5- link entre páginas
+import NavBar from "./components/NavBar";
+
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
       <div>
-        <p>Navbar</p>
+        <NavBar/>
         <Outlet />
         <p>Footer</p>
       </div>
