@@ -16,6 +16,8 @@ import Home from "./routes/Home.jsx";
 import Product from "./routes/Product.jsx";
 // 8 nested route
 import Info from "./routes/Info.jsx";
+// 9 -search params
+import Search from "./routes/Search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +41,14 @@ const router = createBrowserRouter([
       },
       // 8 rota aninhada (nested route)
       {
-        path:"/products/:id/info",
-        element: <Info/>
-      }
+        path: "/products/:id/info",
+        element: <Info />,
+      },
+      // 9- search
+      {
+        path: "search",
+        element: <Search />,
+      },
     ],
   },
   // {
