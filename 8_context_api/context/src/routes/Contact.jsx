@@ -1,10 +1,12 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import { useContext } from "react";
+import { CounterContext } from "../context/CounterContext";
 
 const Contact = () => {
+  const { counter } = useContext(CounterContext);
   return (
     <div>
       <h1>Página de controle</h1>
+      <p>Valor do counter: {counter}</p>
     </div>
   );
 };
