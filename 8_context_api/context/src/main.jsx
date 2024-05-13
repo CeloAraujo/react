@@ -6,6 +6,9 @@ import "./index.css";
 import Home from "./routes/Home.jsx";
 import Contact from "./routes/Contact.jsx";
 
+// 5-contexto mais complexo
+import { TitleColorContextProvider } from "./context/TitleColorContext.jsx";
+
 // routers
 import {
   createBrowserRouter,
@@ -36,7 +39,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CounterContextProvider>
+      <TitleColorContextProvider>
       <RouterProvider router={router}/>
+      </TitleColorContextProvider>
     </CounterContextProvider>
   </React.StrictMode>
 );
