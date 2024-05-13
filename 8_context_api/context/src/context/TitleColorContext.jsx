@@ -4,9 +4,9 @@ export const TitleColorContext = createContext();
 
 export const titleColorReducer = (state, action) => {
   switch (action.type) {
-    case "red":
+    case "RED":
       return { ...state, color: "red" };
-    case "blue":
+    case "BLUE":
       return { ...state, color: "blue" };
     default:
       return state;
@@ -17,7 +17,7 @@ export const TitleColorContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(titleColorReducer, { color: "black" });
 
   return (
-    <TitleColorContext.Provider value={{ ...state }}>
+    <TitleColorContext.Provider value={{ ...state, dispatch }}>
       {children}
     </TitleColorContext.Provider>
   );
