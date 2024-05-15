@@ -16,12 +16,25 @@ const HookUseEffect = () => {
   useEffect(() => {
     console.log("Executado 1 vez apenas");
   }, []);
+
+  //   3- array de dependencias com valores
+  const [anotherNumber, setAnotherNumber] = useState(0);
+
+  useEffect(() => {
+    if (anotherNumber > 0) {
+      console.log("Sou executado quando muda anotherNumber");
+    }
+  }, [anotherNumber]);
   return (
     <div>
       <h2>UseEffect</h2>
       <p>Number: {number}</p>
       <button onClick={changeNumber}>
         Soma <p>(utilizando useEffect)</p>
+      </button>
+      <p>Another Number: {anotherNumber}</p>
+      <button onClick={() => setAnotherNumber(anotherNumber + 1)}>
+        another++
       </button>
     </div>
   );
